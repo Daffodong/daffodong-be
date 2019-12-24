@@ -43,7 +43,7 @@ public class DemoApplication {
 	}
 
 
-	private class GenerateDummyRequest {
+	public class GenerateDummyRequest {
 		public int dummyCnt;
 		public GenerateDummyRequest(){}
 	}
