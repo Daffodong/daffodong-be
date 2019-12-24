@@ -36,6 +36,7 @@ public class DemoApplication {
 	@ResponseBody
 	Boolean wipe(){
 		itemRepository.deleteAll();
+		return true;
 	}
 
 	public static void main(String[] args) {
@@ -57,6 +58,6 @@ public class DemoApplication {
 			dummyList.add(item);
 		}
 
-		return dummyList
+		return dummyList;
 	}
 }
