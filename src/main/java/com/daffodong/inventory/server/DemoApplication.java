@@ -6,6 +6,8 @@ import com.daffodong.inventory.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +16,11 @@ import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
+@EnableMongoRepositories("com.daffodong.inventory.repository")
 @Controller
 public class DemoApplication {
 
+	@Autowired
 	private ItemRepository itemRepository;
 
 	@GetMapping("/")
