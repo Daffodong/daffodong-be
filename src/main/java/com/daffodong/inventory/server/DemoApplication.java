@@ -16,7 +16,6 @@ import java.util.Random;
 @Controller
 public class DemoApplication {
 
-	@Autowired
 	private ItemRepository itemRepository;
 
 	@GetMapping("/")
