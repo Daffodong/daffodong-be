@@ -1,5 +1,6 @@
 package com.daffodong.inventory.server;
 
+import com.daffodong.inventory.model.GenerateDummyRequest;
 import com.daffodong.inventory.model.Item;
 import com.daffodong.inventory.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +41,6 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-	}
-
-
-	public class GenerateDummyRequest {
-		public int dummyCnt;
-		public GenerateDummyRequest(){}
 	}
 
 	private List<Item> createDummyData(int cnt){
