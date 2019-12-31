@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.daffodong.inventory.repository", "com.daffodong.inventory.service"})
 @EnableMongoRepositories("com.daffodong.inventory.repository")
 @Controller
 public class DemoApplication {
