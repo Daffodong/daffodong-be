@@ -1,8 +1,11 @@
 package com.daffodong.inventory.server;
 
+import com.daffodong.inventory.model.FindItemsRequest;
 import com.daffodong.inventory.model.GenerateDummyRequest;
+import com.daffodong.inventory.model.InsertItemRequest;
 import com.daffodong.inventory.model.Item;
 import com.daffodong.inventory.repository.ItemRepository;
+import com.daffodong.inventory.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +25,9 @@ public class DemoApplication {
 
 	@Autowired
 	private ItemRepository itemRepository;
+
+	@Autowired
+	private ItemService itemService;
 
 	@GetMapping("/")
 	@ResponseBody
@@ -43,9 +49,27 @@ public class DemoApplication {
 		return true;
 	}
 
+	@PostMapping("/addItem")
+	@ResponseBody
+	Item addItem(@RequestBody InsertItemRequest request){
+		return itemService.insert(request);
+	}
+
+	@GetMapping("/items")
+	@ResponseBody
+	List<Item> getItems(@RequestParam String name, @RequestParam Double price){
+
+		FindItemsRequest request = new FindItemsRequest();
+		request.name = name;
+		request.price = price;
+
+		return itemService.findByParams(request);
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
+
 
 	private List<Item> createDummyData(int cnt){
 		List<Item> dummyList = new ArrayList<>();
