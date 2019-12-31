@@ -57,7 +57,7 @@ public class DemoApplication {
 
 	@GetMapping("/items")
 	@ResponseBody
-	List<Item> getItems(@RequestParam String name, @RequestParam Double price){
+	List<Item> getItems(@RequestParam(required=false) String name, @RequestParam(required=false) Double price){
 
 		FindItemsRequest request = new FindItemsRequest();
 		request.name = name;
