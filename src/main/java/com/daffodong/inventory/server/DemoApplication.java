@@ -33,7 +33,7 @@ public class DemoApplication {
 	@GetMapping("/")
 	@ResponseBody
 	String home() {
-		return "Merry Christmas milabs!";
+		return "Happy new year milabs!";
 	}
 
 	@PostMapping("/generateDummy")
